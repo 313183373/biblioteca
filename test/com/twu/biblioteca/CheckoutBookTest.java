@@ -18,4 +18,15 @@ public class CheckoutBookTest {
         bibliotecaBorrow.borrowABook(bookTitle);
         assertThat(out.getContent(), is("Thank you! Enjoy the book"));
     }
+
+    @Test
+    public void ShouldCheckoutABookFail() {
+        PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
+        BibliotecaView bibliotecaView = new BibliotecaView(out);
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+
+        String bookTitle = "Wrong Title";
+        bibliotecaBorrow.borrowABook(bookTitle);
+        assertThat(out.getContent(), is("Sorry, that book is not available"));
+    }
 }
