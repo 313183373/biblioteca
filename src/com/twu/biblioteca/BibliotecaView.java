@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 class BibliotecaView {
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+    public static final String INVALID_OPTION_MESSAGE = "Please select a valid option!";
+    public static final String DIVIDING_LINE = "----------------------------------------------------------------";
+    public static final String LIST_OF_ALL_BOOKS_START = String.format("%-30s|%25s|%s\n%s", "Title", "Author", "Publish", DIVIDING_LINE);
 
     public static final String[] menu = {"List of books"};
 
@@ -29,13 +32,14 @@ class BibliotecaView {
     }
 
     public void showInvalidMenuOptionMessage() {
-        out.println("Please select a valid option!");
+        out.println(INVALID_OPTION_MESSAGE);
     }
 
     public void showBookList() {
+        out.println(LIST_OF_ALL_BOOKS_START);
         ArrayList<BibliotecaBook> allBooks = bibliotecaBooks.getAllBooks();
         for (BibliotecaBook book : allBooks) {
-            out.println(book.getTitle());
+            out.println(book.toString());
         }
     }
 }
