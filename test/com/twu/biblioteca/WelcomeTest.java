@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class WelcomeTest {
 
     @Test
-    public void ShouldReturnAWelcomeMessageWhenCallWelcome() {
+    public void ShouldPrintWelcomeMessage() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
         bibliotecaView.welcome();
