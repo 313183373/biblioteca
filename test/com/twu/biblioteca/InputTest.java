@@ -16,7 +16,7 @@ public class InputTest {
     public void ShouldGetNotifiedWhenChooseAnInvalidOption() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaInput bibliotecaInput = new BibliotecaInput(bibliotecaView, new Scanner("3"));
+        BibliotecaInput bibliotecaInput = new BibliotecaInput(bibliotecaView, new Scanner("3\n"));
 
         int selection = bibliotecaInput.getUserSelection();
 
