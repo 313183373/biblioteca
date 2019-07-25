@@ -7,26 +7,17 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CheckoutBookTest {
+public class ReturnBookTest {
     @Test
-    public void ShouldCheckoutABookSucceed() {
+    public void ShouldReturnABookSucceed() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
         BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
 
         String bookTitle = BibliotecaBooks.books.get(0).getTitle();
         bibliotecaBorrow.borrowABook(bookTitle);
-        assertThat(out.getContent(), is("Thank you! Enjoy the book"));
-    }
+        bibliotecaBorrow.returnABook(bookTitle);
+        assertThat(out.getContent(), is("Thank you! Enjoy the book\nThank you for returning the book"));
 
-    @Test
-    public void ShouldCheckoutABookFail() {
-        PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
-        BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
-
-        String bookTitle = "Wrong Title";
-        bibliotecaBorrow.borrowABook(bookTitle);
-        assertThat(out.getContent(), is("Sorry, that book is not available"));
     }
 }
