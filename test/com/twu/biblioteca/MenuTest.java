@@ -14,6 +14,6 @@ public class MenuTest {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
         bibliotecaView.showMenu();
-        assertThat(out.getContent(), is("1. List of books"));
+        assertThat(out.getContent(), is("1. List of books\n2. Checkout a book"));
     }
 }
