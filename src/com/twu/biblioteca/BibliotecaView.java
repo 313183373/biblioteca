@@ -23,4 +23,8 @@ class BibliotecaView {
             out.println(index + ". " + menu[i]);
         }
     }
+
+    public void showInvalidMenuOptionMessage() {
+        out.println("Please select a valid option!");
+    }
 }
