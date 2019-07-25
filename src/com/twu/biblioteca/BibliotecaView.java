@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 class BibliotecaView {
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
@@ -9,8 +10,11 @@ class BibliotecaView {
 
     private PrintStream out;
 
+    private BibliotecaBooks bibliotecaBooks;
+
     BibliotecaView(PrintStream out) {
         this.out = out;
+        bibliotecaBooks = new BibliotecaBooks();
     }
 
     void welcome() {
@@ -26,5 +30,12 @@ class BibliotecaView {
 
     public void showInvalidMenuOptionMessage() {
         out.println("Please select a valid option!");
+    }
+
+    public void showBookList() {
+        ArrayList<BibliotecaBook> allBooks = bibliotecaBooks.getAllBooks();
+        for (BibliotecaBook book : allBooks) {
+            out.println(book.getTitle());
+        }
     }
 }
