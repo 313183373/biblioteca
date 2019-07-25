@@ -23,6 +23,9 @@ public class BibliotecaApp {
         while (true) {
             view.showMenu();
             int selection = input.getUserSelection();
+            if (selection == 4) {
+                break;
+            }
             switch (selection) {
                 case 1: {
                     view.showBookList();
