@@ -13,6 +13,18 @@ public class BookListTest {
         PrintStreamSpy printStreamSpy = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(printStreamSpy);
         bibliotecaView.showBookList();
-        assertThat(printStreamSpy.getContent(), is("In Search of Lost Time\nDon Quixote\nUlysses\nThe Great Gatsby\nMoby Dick\nHamlet\nWar and Peace\nThe Odyssey\nOne Hundred Years of Solitude\nThe Divine Comedy"));
+        assertThat(printStreamSpy.getContent(), is(
+                "Title                         |                   Author|Publish\n" +
+                        "----------------------------------------------------------------\n" +
+                        "In Search of Lost Time        |            Marcel Proust|   1998\n" +
+                        "Don Quixote                   |      Miguel de Cervantes|   1999\n" +
+                        "Ulysses                       |              James Joyce|   1997\n" +
+                        "The Great Gatsby              |       F.Scott Fitzgerald|   1987\n" +
+                        "Moby Dick                     |          Herman Melville|   1980\n" +
+                        "Hamlet                        |      William Shakespeare|   2000\n" +
+                        "War and Peace                 |              Leo Tolstoy|   2001\n" +
+                        "The Odyssey                   |                    Homer|   1993\n" +
+                        "One Hundred Years of Solitude |   Gabriel Garcia Marquez|   2000\n" +
+                        "The Divine Comedy             |          Dante Alighieri|   2001"));
     }
 }
