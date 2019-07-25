@@ -22,6 +22,11 @@ public class BibliotecaApp {
         view.welcome();
         view.showMenu();
         int selection = input.getUserSelection();
+        switch (selection) {
+            case 1:
+                view.showBookList();
+                break;
+        }
     }
 
     public static void main(String[] args) {
