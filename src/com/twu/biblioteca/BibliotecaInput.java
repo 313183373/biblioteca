@@ -14,6 +14,7 @@ public class BibliotecaInput {
 
     public int getUserSelection() {
         int selection = scanner.nextInt();
+        scanner.nextLine();
         if (isValidMenuOption(selection)) {
             return selection;
         }
@@ -23,5 +24,9 @@ public class BibliotecaInput {
 
     private boolean isValidMenuOption(int selection) {
         return selection > 0 & selection <= BibliotecaView.menu.length;
+    }
+
+    public String getUserInputBookTitle() {
+        return scanner.nextLine();
     }
 }
