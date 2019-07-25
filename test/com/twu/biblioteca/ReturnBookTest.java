@@ -20,4 +20,15 @@ public class ReturnBookTest {
         assertThat(out.getContent(), is("Thank you! Enjoy the book\nThank you for returning the book"));
 
     }
+
+    @Test
+    public void ShouldReturnABookFail() {
+        PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
+        BibliotecaView bibliotecaView = new BibliotecaView(out);
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+
+        String bookTitle = BibliotecaBooks.books.get(0).getTitle();
+        bibliotecaBorrow.returnABook(bookTitle);
+        assertThat(out.getContent(), is("That is not a valid book to return."));
+    }
 }
