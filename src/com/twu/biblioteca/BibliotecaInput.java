@@ -23,7 +23,7 @@ public class BibliotecaInput {
     }
 
     private boolean isValidMenuOption(int selection) {
-        return selection > 0 & selection <= BibliotecaView.menu.length;
+        return selection > 0 & selection <= BibliotecaView.MENU.length;
     }
 
     public String getUserInputBookTitle() {

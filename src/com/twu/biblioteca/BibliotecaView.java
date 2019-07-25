@@ -8,7 +8,7 @@ class BibliotecaView {
     public static final String DIVIDING_LINE = "----------------------------------------------------------------";
     public static final String LIST_OF_ALL_BOOKS_START = String.format("%-30s|%25s|%s\n%s", "Title", "Author", "Publish", DIVIDING_LINE);
 
-    public static final String[] menu = {"List of books", "Checkout a book"};
+    public static final String[] MENU = {"List of books", "Checkout a book", "Return a book"};
     public static final String INPUT_TITLE_PROMPT = "Please enter the book title: ";
     public static final String CHECKOUT_SUCCEED_MESSAGE = "Thank you! Enjoy the book";
     public static final String CHECKOUT_FAIL_MESSAGE = "Sorry, that book is not available";
@@ -26,9 +26,9 @@ class BibliotecaView {
     }
 
     void showMenu() {
-        for (int i = 0; i < menu.length; i++) {
+        for (int i = 0; i < MENU.length; i++) {
             int index = i + 1;
-            out.println(index + ". " + menu[i]);
+            out.println(index + ". " + MENU[i]);
         }
     }
 

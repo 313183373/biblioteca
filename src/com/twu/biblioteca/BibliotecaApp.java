@@ -20,18 +20,27 @@ public class BibliotecaApp {
 
     private void launch() {
         view.welcome();
-        view.showMenu();
-        int selection = input.getUserSelection();
-        switch (selection) {
-            case 1:
-                view.showBookList();
-                break;
-            case 2:
-                view.showInputBookTitlePrompt();
-                String title = input.getUserInputBookTitle();
-                borrow.borrowABook(title);
-                break;
-
+        while (true) {
+            view.showMenu();
+            int selection = input.getUserSelection();
+            switch (selection) {
+                case 1: {
+                    view.showBookList();
+                    break;
+                }
+                case 2: {
+                    view.showInputBookTitlePrompt();
+                    String title = input.getUserInputBookTitle();
+                    borrow.borrowABook(title);
+                    break;
+                }
+                case 3: {
+                    view.showInputBookTitlePrompt();
+                    String title = input.getUserInputBookTitle();
+                    borrow.returnABook(title);
+                    break;
+                }
+            }
         }
     }
 
