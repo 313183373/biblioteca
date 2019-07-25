@@ -13,7 +13,14 @@ public class BibliotecaInput {
     }
 
     public int getUserSelection() {
-        int selection = scanner.nextInt();
+        int selection;
+        try {
+            selection = scanner.nextInt();
+        } catch (Exception e) {
+            bibliotecaView.showInvalidMenuOptionMessage();
+            scanner.nextLine();
+            return INVALID_OPTION;
+        }
         scanner.nextLine();
         if (isValidMenuOption(selection)) {
             return selection;
