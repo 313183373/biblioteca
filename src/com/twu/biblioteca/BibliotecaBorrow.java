@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class BibliotecaBorrow {
     private ArrayList<BibliotecaBorrowRecord> borrowRecords = new ArrayList<>();
@@ -11,7 +12,7 @@ public class BibliotecaBorrow {
     }
 
     public void borrowABook(String title) {
-        if (isTheBookAvailable(title)) {
+        if (hasTheBook(title) && !isTheBookBorrowed(title)) {
             borrowRecords.add(new BibliotecaBorrowRecord(title));
             view.showCheckoutSucceedMessage();
         } else {
@@ -19,8 +20,13 @@ public class BibliotecaBorrow {
         }
     }
 
-    private boolean isTheBookAvailable(String title) {
-        return hasTheBook(title) && !isTheBookBorrowed(title);
+    public void returnABook(String title) {
+        if (hasTheBook(title) && isTheBookBorrowed(title)) {
+            removeRecord(title);
+            view.showReturnBookSucceedMessage();
+        } else {
+            view.showReturnBookFailMessage();
+        }
     }
 
     private boolean hasTheBook(String title) {
@@ -29,5 +35,16 @@ public class BibliotecaBorrow {
 
     private boolean isTheBookBorrowed(String title) {
         return borrowRecords.stream().anyMatch(record -> record.getBookTitle().equals(title));
+    }
+
+    private void removeRecord(String title) {
+        Iterator<BibliotecaBorrowRecord> iterator = borrowRecords.iterator();
+        while (iterator.hasNext()) {
+            BibliotecaBorrowRecord record = iterator.next();
+            if (record.getBookTitle().equals(title)) {
+                iterator.remove();
+                break;
+            }
+        }
     }
 }

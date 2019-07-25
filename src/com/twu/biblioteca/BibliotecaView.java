@@ -12,6 +12,8 @@ class BibliotecaView {
     public static final String INPUT_TITLE_PROMPT = "Please enter the book title: ";
     public static final String CHECKOUT_SUCCEED_MESSAGE = "Thank you! Enjoy the book";
     public static final String CHECKOUT_FAIL_MESSAGE = "Sorry, that book is not available";
+    public static final String RETURN_BOOK_SUCCEED_MESSAGE = "Thank you for returning the book";
+    public static final String RETURN_BOOK_FAIL = "That is not a valid book to return.";
 
     private PrintStream out;
 
@@ -51,5 +53,13 @@ class BibliotecaView {
 
     public void showCheckoutFailMessage() {
         out.println(CHECKOUT_FAIL_MESSAGE);
+    }
+
+    public void showReturnBookSucceedMessage() {
+        out.println(RETURN_BOOK_SUCCEED_MESSAGE);
+    }
+
+    public void showReturnBookFailMessage() {
+        out.println(RETURN_BOOK_FAIL);
     }
 }
