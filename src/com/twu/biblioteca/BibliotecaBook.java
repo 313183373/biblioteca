@@ -17,4 +17,8 @@ public class BibliotecaBook {
     public String toString() {
         return String.format("%-30s|%25s|%7s", title, author, publicationYear);
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

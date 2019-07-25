@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 class BibliotecaView {
     public static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
@@ -11,6 +10,8 @@ class BibliotecaView {
 
     public static final String[] menu = {"List of books", "Checkout a book"};
     public static final String INPUT_TITLE_PROMPT = "Please enter the book title: ";
+    public static final String CHECKOUT_SUCCEED_MESSAGE = "Thank you! Enjoy the book";
+    public static final String CHECKOUT_FAIL_MESSAGE = "Sorry, that book is not available";
 
     private PrintStream out;
 
@@ -42,5 +43,13 @@ class BibliotecaView {
         for (BibliotecaBook book : BibliotecaBooks.books) {
             out.println(book.toString());
         }
+    }
+
+    public void showCheckoutSucceedMessage() {
+        out.println(CHECKOUT_SUCCEED_MESSAGE);
+    }
+
+    public void showCheckoutFailMessage() {
+        out.println(CHECKOUT_FAIL_MESSAGE);
     }
 }
