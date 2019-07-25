@@ -3,11 +3,18 @@ package com.twu.biblioteca;
 public class BibliotecaBook {
     private String title;
 
-    public BibliotecaBook(String title) {
+    private String author;
+
+    private String publicationYear;
+
+    public BibliotecaBook(String title, String author, String publicationYear) {
         this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public String toString() {
+        return String.format("%-30s|%25s|%7s", title, author, publicationYear);
     }
 }
