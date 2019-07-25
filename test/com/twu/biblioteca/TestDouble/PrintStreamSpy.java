@@ -2,9 +2,10 @@ package com.twu.biblioteca.TestDouble;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class PrintStreamSpy extends PrintStream {
-    private String content;
+    private ArrayList<String> content = new ArrayList<>();
 
     public PrintStreamSpy(OutputStream out) {
         super(out);
@@ -12,10 +13,10 @@ public class PrintStreamSpy extends PrintStream {
 
     @Override
     public void println(String x) {
-        content = x;
+        content.add(x);
     }
 
     public String getContent() {
-        return content;
+        return String.join("\n", content);
     }
 }
