@@ -2,8 +2,6 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 
-import static com.twu.biblioteca.BibliotecaInput.INVALID_OPTION;
-
 public class BibliotecaApp {
 
     private BibliotecaView view;

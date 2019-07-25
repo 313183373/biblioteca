@@ -9,15 +9,13 @@ class BibliotecaView {
     public static final String DIVIDING_LINE = "----------------------------------------------------------------";
     public static final String LIST_OF_ALL_BOOKS_START = String.format("%-30s|%25s|%s\n%s", "Title", "Author", "Publish", DIVIDING_LINE);
 
-    public static final String[] menu = {"List of books"};
+    public static final String[] menu = {"List of books", "Checkout a book"};
+    public static final String INPUT_TITLE_PROMPT = "Please enter the book title: ";
 
     private PrintStream out;
 
-    private BibliotecaBooks bibliotecaBooks;
-
     BibliotecaView(PrintStream out) {
         this.out = out;
-        bibliotecaBooks = new BibliotecaBooks();
     }
 
     void welcome() {
@@ -35,10 +33,13 @@ class BibliotecaView {
         out.println(INVALID_OPTION_MESSAGE);
     }
 
+    public void showInputBookTitlePrompt() {
+        out.println(INPUT_TITLE_PROMPT);
+    }
+
     public void showBookList() {
         out.println(LIST_OF_ALL_BOOKS_START);
-        ArrayList<BibliotecaBook> allBooks = bibliotecaBooks.getAllBooks();
-        for (BibliotecaBook book : allBooks) {
+        for (BibliotecaBook book : BibliotecaBooks.books) {
             out.println(book.toString());
         }
     }
