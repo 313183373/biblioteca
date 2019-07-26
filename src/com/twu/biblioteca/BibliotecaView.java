@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Model.BibliotecaBook;
+
 import java.io.PrintStream;
 
 class BibliotecaView {

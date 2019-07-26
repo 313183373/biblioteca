@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Model.BibliotecaBorrowRecord;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
