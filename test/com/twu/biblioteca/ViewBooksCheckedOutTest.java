@@ -37,4 +37,16 @@ public class ViewBooksCheckedOutTest {
                 "Ulysses                       |      Jack\n" +
                 "The Great Gatsby              |       Bob"));
     }
+
+    @Test
+    public void ShouldViewAMessageWhenNoBookCheckedOut() {
+        PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
+        BibliotecaView view = new BibliotecaView(out);
+        BibliotecaLogin login = new BibliotecaLogin();
+        BibliotecaBorrow borrow = new BibliotecaBorrow(view, login);
+
+        view.showBooksCheckedOut(borrow);
+
+        assertThat(out.getContent(), is("There is no book checked out"));
+    }
 }
