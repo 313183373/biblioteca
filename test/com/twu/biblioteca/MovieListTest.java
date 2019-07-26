@@ -15,6 +15,7 @@ public class MovieListTest {
         bibliotecaView.showMovieList();
 
         assertThat(out.getContent(), is("" +
+                "Name                                              |Year|                        Director|Rating\n" +
                 "Avengers:Endgame                                  |2019|        Anthony Russo, Joe Russo| 9\n" +
                 "Thor:Ragnarok                                     |2017|                   Taika Waititi| 8\n" +
                 "Wonder Woman                                      |2017|                   Patty Jenkins| 8\n" +
