@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
-public class BibliotecaBook {
+class BibliotecaBook {
     private String title;
 
     private String author;
 
     private String publicationYear;
 
-    public BibliotecaBook(String title, String author, String publicationYear) {
+    BibliotecaBook(String title, String author, String publicationYear) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -18,7 +18,7 @@ public class BibliotecaBook {
         return String.format("%-30s|%25s|%7s", title, author, publicationYear);
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 }

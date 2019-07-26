@@ -3,8 +3,8 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BibliotecaBooks {
-    public static final ArrayList<BibliotecaBook> BOOKS = new ArrayList<>(Arrays.asList(new BibliotecaBook("In Search of Lost Time", "Marcel Proust", "1998"),
+class BibliotecaBooks {
+    static final ArrayList<BibliotecaBook> BOOKS = new ArrayList<>(Arrays.asList(new BibliotecaBook("In Search of Lost Time", "Marcel Proust", "1998"),
             new BibliotecaBook("Don Quixote", "Miguel de Cervantes", "1999"),
             new BibliotecaBook("Ulysses", "James Joyce", "1997"),
             new BibliotecaBook("The Great Gatsby", "F.Scott Fitzgerald", "1987"),

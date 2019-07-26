@@ -8,19 +8,19 @@ public class BibliotecaApp {
     private BibliotecaInput input;
     private BibliotecaBorrow borrow;
 
-    public BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow) {
+    BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow) {
         view = bibliotecaView;
         input = bibliotecaInput;
         borrow = bibliotecaBorrow;
     }
 
-    public BibliotecaApp() {
+    private BibliotecaApp() {
         this.view = new BibliotecaView(System.out);
         this.input = new BibliotecaInput(view, new Scanner(System.in));
         this.borrow = new BibliotecaBorrow(view);
     }
 
-    public void launch() {
+    void launch() {
         view.welcome();
         while (true) {
             view.showMenu();

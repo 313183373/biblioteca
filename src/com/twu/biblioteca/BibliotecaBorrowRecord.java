@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
-public class BibliotecaBorrowRecord {
+class BibliotecaBorrowRecord {
     private String bookTitle;
 
-    public BibliotecaBorrowRecord(String bookTitle) {
+    BibliotecaBorrowRecord(String bookTitle) {
         this.bookTitle = bookTitle;
     }
 
-    public String getBookTitle() {
+    String getBookTitle() {
         return bookTitle;
     }
 }

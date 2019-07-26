@@ -3,15 +3,15 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class BibliotecaBorrow {
+class BibliotecaBorrow {
     private ArrayList<BibliotecaBorrowRecord> borrowRecords = new ArrayList<>();
     private BibliotecaView view;
 
-    public BibliotecaBorrow(BibliotecaView view) {
+    BibliotecaBorrow(BibliotecaView view) {
         this.view = view;
     }
 
-    public void borrowABook(String title) {
+    void borrowABook(String title) {
         if (hasTheBook(title) && !isTheBookBorrowed(title)) {
             borrowRecords.add(new BibliotecaBorrowRecord(title));
             view.showCheckoutSucceedMessage();
@@ -20,7 +20,7 @@ public class BibliotecaBorrow {
         }
     }
 
-    public void returnABook(String title) {
+    void returnABook(String title) {
         if (hasTheBook(title) && isTheBookBorrowed(title)) {
             removeRecord(title);
             view.showReturnBookSucceedMessage();
