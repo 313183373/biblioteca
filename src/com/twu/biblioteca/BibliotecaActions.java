@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class BibliotecaActions {
     static final ArrayList<BibliotecaAction> ACTIONS = new ArrayList<>(Arrays.asList(
             (view, borrow, input, login) -> view.showBookList(),
+            (view, borrow, input, login) -> view.showMovieList(),
             (view, borrow, input, login) -> {
                 view.showInputBookTitlePrompt();
                 String title = input.getUserInputBookTitle();
@@ -18,7 +19,7 @@ public class BibliotecaActions {
             },
             (view, borrow, input, login) -> view.showBooksCheckedOut(borrow),
             (view, borrow, input, login) -> {
-               view.showUserInformation(login.getLoginUser());
+                view.showUserInformation(login.getLoginUser());
             },
             (view, borrow, input, login) -> {
                 System.exit(0);

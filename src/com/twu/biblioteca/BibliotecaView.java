@@ -21,6 +21,7 @@ public class BibliotecaView {
     private static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
     private static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
     private static final String LOGIN_FAILE_MESSAGE = "Sorry, invalid user, please try again!";
+    public static final String MOVIE_LIST_START = String.format("%-50s|%4s|%32s|%6s", "Name", "Year", "Director", "Rating");
 
     private PrintStream out;
 
@@ -112,6 +113,7 @@ public class BibliotecaView {
 
     void showMovieList() {
         List<BibliotecaMovie> availableMovies = BibliotecaMovies.getAvailableMovies();
+        out.println(MOVIE_LIST_START);
         for (BibliotecaMovie movie : availableMovies) {
             out.println(movie.toString());
         }
