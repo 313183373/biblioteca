@@ -8,8 +8,10 @@ public class BibliotecaApp {
     private BibliotecaInput input;
     private BibliotecaBorrow borrow;
 
-    public BibliotecaApp(BibliotecaView view) {
-        this.view = view;
+    public BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow) {
+        view = bibliotecaView;
+        input = bibliotecaInput;
+        borrow = bibliotecaBorrow;
     }
 
     public BibliotecaApp() {
@@ -18,7 +20,7 @@ public class BibliotecaApp {
         this.borrow = new BibliotecaBorrow(view);
     }
 
-    private void launch() {
+    public void launch() {
         view.welcome();
         while (true) {
             view.showMenu();
