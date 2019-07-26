@@ -24,9 +24,9 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void BibliotecaShouldDisplayABookList() {
+    public void CanCheckoutABookAndReturnABook() {
         BibliotecaInput bibliotecaInput = new BibliotecaInput(bibliotecaView,
-                new Scanner("1\n4\n"));
+                new Scanner("1\n2\nDon Quixote\n3\nDon Quixote\n4\n"));
         BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaView, bibliotecaInput, bibliotecaBorrow);
 
         bibliotecaApp.launch();
@@ -52,11 +52,18 @@ public class BibliotecaAppTest {
                         "1. List of books\n" +
                         "2. Checkout a book\n" +
                         "3. Return a book\n" +
+                        "4. Quit\n" +
+                        "Please enter the book title: \n" +
+                        "Thank you! Enjoy the book\n" +
+                        "1. List of books\n" +
+                        "2. Checkout a book\n" +
+                        "3. Return a book\n" +
+                        "4. Quit\n" +
+                        "Please enter the book title: \n" +
+                        "Thank you for returning the book\n" +
+                        "1. List of books\n" +
+                        "2. Checkout a book\n" +
+                        "3. Return a book\n" +
                         "4. Quit"));
-    }
-
-    @Test
-    public void CanBorrowABookAndCheckInvalidBook() {
-
     }
 }
