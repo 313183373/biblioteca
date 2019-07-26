@@ -17,8 +17,11 @@ public class InputTest {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
         BibliotecaInput bibliotecaInput = new BibliotecaInput(bibliotecaView, new Scanner("aa\n"));
+        BibliotecaLogin bibliotecaLogin = new BibliotecaLogin();
 
-        int selection = bibliotecaInput.getUserSelection();
+        bibliotecaLogin.login("Jack", "password");
+
+        int selection = bibliotecaInput.getUserSelection(bibliotecaLogin.getAvailableMenu());
 
         assertThat(out.getContent(), is("Please select a valid option!"));
         assertThat(selection, is(INVALID_OPTION));

@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class BibliotecaAppTest {
 
@@ -28,17 +29,26 @@ public class BibliotecaAppTest {
     @Test
     public void CanCheckoutABookAndReturnABook() {
         BibliotecaInput bibliotecaInput = new BibliotecaInput(bibliotecaView,
-                new Scanner("1\n2\nDon Quixote\n3\nDon Quixote\n4\n"));
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaView, bibliotecaInput, bibliotecaBorrow);
+                new Scanner("Jack\npassword\n1\n3\nIn Search of Lost Time\n2\n4\nJustice League\n5\nIn Search of Lost Time\n6\n7\n"));
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaView, bibliotecaInput, bibliotecaBorrow, bibliotecaLogin);
 
         bibliotecaApp.launch();
 
+        assertEquals(1, 1);
+
         assertThat(out.getContent(), is(
                 "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                        "1. List of BOOKS\n" +
-                        "2. Checkout a book\n" +
-                        "3. Return a book\n" +
-                        "4. Quit\n" +
+                        "Please login first\n" +
+                        "Name:\n" +
+                        "Password:\n" +
+                        "Hello Jack\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
                         "Title                         |                   Author|Publish\n" +
                         "----------------------------------------------------------------\n" +
                         "In Search of Lost Time        |            Marcel Proust|   1998\n" +
@@ -51,21 +61,67 @@ public class BibliotecaAppTest {
                         "The Odyssey                   |                    Homer|   1993\n" +
                         "One Hundred Years of Solitude |   Gabriel Garcia Marquez|   2000\n" +
                         "The Divine Comedy             |          Dante Alighieri|   2001\n" +
-                        "1. List of BOOKS\n" +
-                        "2. Checkout a book\n" +
-                        "3. Return a book\n" +
-                        "4. Quit\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
                         "Please enter the book title: \n" +
                         "Thank you! Enjoy the book\n" +
-                        "1. List of BOOKS\n" +
-                        "2. Checkout a book\n" +
-                        "3. Return a book\n" +
-                        "4. Quit\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
+                        "Name                                              |Year|                        Director|Rating\n" +
+                        "Avengers:Endgame                                  |2019|        Anthony Russo, Joe Russo| 9\n" +
+                        "Thor:Ragnarok                                     |2017|                   Taika Waititi| 8\n" +
+                        "Wonder Woman                                      |2017|                   Patty Jenkins| 8\n" +
+                        "Guardians of the Galaxy Vol. 2                    |2017|                      James Gunn| 8\n" +
+                        "Logan                                             |2017|                   James Mangold| 8\n" +
+                        "Despicable Me 3                                   |2017|                      Kyle Balda| 6\n" +
+                        "Pirates of the Caribbean: Dead Men Tell No Tales  |2017| Joachim Ronning, Espen Sandberg| 7\n" +
+                        "Justice League                                    |2017|                     Zack Snyder| 6\n" +
+                        "Star Wars: Episode VIII - The Last Jedi           |2017|                    Rian Johnson| 7\n" +
+                        "Kong: Skull Island                                |2017|             Jordan Vogt-Roberts| 7\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
+                        "Please enter a movie name:\n" +
+                        "Thank you! Enjoy the movie\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
                         "Please enter the book title: \n" +
                         "Thank you for returning the book\n" +
-                        "1. List of BOOKS\n" +
-                        "2. Checkout a book\n" +
-                        "3. Return a book\n" +
-                        "4. Quit"));
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit\n" +
+                        "name: Jack\n" +
+                        "email: jack@gmail.com\n" +
+                        "phone number: 123456789\n" +
+                        "1: List of books\n" +
+                        "2: List of available movies\n" +
+                        "3: Checkout a book\n" +
+                        "4: Checkout a movie\n" +
+                        "5: Return a book\n" +
+                        "6: View my information\n" +
+                        "7: Quit"));
     }
 }

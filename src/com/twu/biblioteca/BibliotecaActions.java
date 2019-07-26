@@ -32,6 +32,8 @@ public class BibliotecaActions {
             },
             (view, borrow, input, login) -> view.showBooksCheckedOut(borrow),
             (view, borrow, input, login) -> view.showUserInformation(login.getLoginUser()),
-            (view, borrow, input, login) -> System.exit(0)
+            (view, borrow, input, login) -> {
+                throw new Error();
+            }
     ));
 }

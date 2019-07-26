@@ -12,7 +12,7 @@ public class BibliotecaInput {
         this.scanner = scanner;
     }
 
-    int getUserSelection() {
+    int getUserSelection(BibliotecaMenu menu) {
         int selection;
         try {
             selection = scanner.nextInt();
@@ -21,15 +21,15 @@ public class BibliotecaInput {
             bibliotecaView.showInvalidMenuOptionMessage();
             return INVALID_OPTION;
         }
-        if (isValidMenuOption(selection)) {
+        if (isValidMenuOption(selection, menu)) {
             return selection;
         }
         bibliotecaView.showInvalidMenuOptionMessage();
         return INVALID_OPTION;
     }
 
-    private boolean isValidMenuOption(int selection) {
-        return selection > 0 & selection <= BibliotecaMenu.ITEMS.length;
+    private boolean isValidMenuOption(int selection, BibliotecaMenu menu) {
+        return selection > 0 & selection <= menu.getAvailableItems().size();
     }
 
     String getUserInputBookTitle() {

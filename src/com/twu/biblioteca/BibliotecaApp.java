@@ -11,10 +11,11 @@ public class BibliotecaApp {
     private BibliotecaBorrow borrow;
     private BibliotecaLogin login;
 
-    BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow) {
+    BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow, BibliotecaLogin bibliotecaLogin) {
         view = bibliotecaView;
         input = bibliotecaInput;
         borrow = bibliotecaBorrow;
+        login = bibliotecaLogin;
     }
 
     private BibliotecaApp() {
@@ -31,8 +32,12 @@ public class BibliotecaApp {
         while (true) {
             BibliotecaMenu availableMenu = login.getAvailableMenu();
             view.showMenu(availableMenu);
-            int selection = input.getUserSelection() - 1;
-            availableMenu.getAvailableItems().get(selection).handle(view, borrow, input, login);
+            int selection = input.getUserSelection(availableMenu) - 1;
+            try {
+                availableMenu.getAvailableItems().get(selection).handle(view, borrow, input, login);
+            } catch (Error error) {
+                return;
+            }
         }
     }
 

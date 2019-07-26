@@ -21,7 +21,7 @@ public class BibliotecaMenuItem {
         return bibliotecaRole;
     }
 
-    public void handle(BibliotecaView view, BibliotecaBorrow borrow, BibliotecaInput input, BibliotecaLogin login) {
+    public void handle(BibliotecaView view, BibliotecaBorrow borrow, BibliotecaInput input, BibliotecaLogin login) throws Error {
         action.handle(view, borrow, input, login);
     }
 }
