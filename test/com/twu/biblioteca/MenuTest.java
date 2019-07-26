@@ -13,7 +13,7 @@ public class MenuTest {
     public void ShouldPrintMenuListOfOptions() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        bibliotecaView.showMenu();
+        bibliotecaView.showMenu(null);
         assertThat(out.getContent(), is("1. List of BOOKS\n2. Checkout a book\n3. Return a book\n4. Quit"));
     }
 }
