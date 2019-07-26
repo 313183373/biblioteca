@@ -105,4 +105,10 @@ public class BibliotecaView {
     void showLoginFailPrompt() {
         out.println(LOGIN_FAILE_MESSAGE);
     }
+
+    void showUserInformation(BibliotecaUser loginUser) {
+        out.println("name: " + loginUser.getName());
+        out.println("email: " + loginUser.getEmail());
+        out.println("phone number: " + loginUser.getPhoneNumber());
+    }
 }
