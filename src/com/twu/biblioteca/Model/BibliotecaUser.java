@@ -54,4 +54,8 @@ public class BibliotecaUser {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public boolean isLibrarian() {
+        return role.equals(Role.Librarian);
+    }
 }

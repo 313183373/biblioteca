@@ -39,9 +39,9 @@ public class BibliotecaApp {
             }
         }
         while (true) {
-            view.showMenu();
+            view.showMenu(login.getLoginUser());
             int selection = input.getUserSelection();
-            if (selection == 4) {
+            if (selection == 5) {
                 break;
             }
             switch (selection) {
@@ -60,6 +60,9 @@ public class BibliotecaApp {
                     String title = input.getUserInputBookTitle();
                     borrow.returnABook(title);
                     break;
+                }
+                case 4: {
+                    view.showBooksCheckedOut(borrow);
                 }
             }
         }

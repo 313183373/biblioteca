@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 class BibliotecaView {
-    static final String[] MENU = {"List of books", "Checkout a book", "Return a book", "Quit"};
+    static final String[] MENU = {"List of books", "Checkout a book", "Return a book", "View books checked out", "Quit"};
 //    static final String[] ADMIN_MENU = {"List of borrow record"};
 
     private static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
@@ -23,6 +23,7 @@ class BibliotecaView {
     private static final String RETURN_BOOK_FAIL = "That is not a valid book to return.";
     public static final String LOGIN_PROMPT = "Please login first";
     public static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
+    public static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
 
     private PrintStream out;
 
@@ -93,6 +94,10 @@ class BibliotecaView {
 
     void showBooksCheckedOut(BibliotecaBorrow borrow) {
         ArrayList<BibliotecaBorrowRecord> allRecords = borrow.getBorrowRecords();
+        if (allRecords.size() <= 0) {
+            out.println(NO_BOOK_CHECKED_OUT);
+            return;
+        }
         out.println(BORROW_RECORDS_LIST_START);
         out.println(BORROW_RECORDS_DIVIDING_LINE);
         for (BibliotecaBorrowRecord record : allRecords) {
