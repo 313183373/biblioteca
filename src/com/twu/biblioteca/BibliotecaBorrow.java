@@ -8,14 +8,16 @@ import java.util.Iterator;
 class BibliotecaBorrow {
     private ArrayList<BibliotecaBorrowRecord> borrowRecords = new ArrayList<>();
     private BibliotecaView view;
+    private BibliotecaLogin login;
 
-    BibliotecaBorrow(BibliotecaView view) {
+    BibliotecaBorrow(BibliotecaView view, BibliotecaLogin login) {
         this.view = view;
+        this.login = login;
     }
 
     void borrowABook(String title) {
         if (hasTheBook(title) && !isTheBookBorrowed(title)) {
-            borrowRecords.add(new BibliotecaBorrowRecord(title));
+            borrowRecords.add(new BibliotecaBorrowRecord(title, login.getLoginUser()));
             view.showCheckoutSucceedMessage();
         } else {
             view.showCheckoutFailMessage();
@@ -48,5 +50,9 @@ class BibliotecaBorrow {
                 break;
             }
         }
+    }
+
+    public ArrayList<BibliotecaBorrowRecord> getBorrowRecords() {
+        return borrowRecords;
     }
 }

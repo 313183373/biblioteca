@@ -20,7 +20,8 @@ public class BibliotecaApp {
     private BibliotecaApp() {
         this.view = new BibliotecaView(System.out);
         this.input = new BibliotecaInput(view, new Scanner(System.in));
-        this.borrow = new BibliotecaBorrow(view);
+        this.login = new BibliotecaLogin();
+        this.borrow = new BibliotecaBorrow(view, login);
     }
 
     void launch() {
