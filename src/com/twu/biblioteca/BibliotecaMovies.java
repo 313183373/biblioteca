@@ -5,6 +5,7 @@ import com.twu.biblioteca.Model.BibliotecaMovie;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class BibliotecaMovies {
@@ -23,5 +24,10 @@ public class BibliotecaMovies {
 
     static List<BibliotecaMovie> getAvailableMovies() {
         return MOVIE.stream().filter(BibliotecaMovie::isAvailable).collect(Collectors.toList());
+    }
+
+    static BibliotecaMovie getMovieByName(String name) {
+        Optional<BibliotecaMovie> movieOptional = MOVIE.stream().filter(bibliotecaMovie -> bibliotecaMovie.getName().equals(name)).findFirst();
+        return movieOptional.orElse(null);
     }
 }

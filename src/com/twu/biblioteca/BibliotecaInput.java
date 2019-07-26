@@ -43,4 +43,8 @@ public class BibliotecaInput {
     String getUserPassword() {
         return scanner.nextLine();
     }
+
+    String getUserInputMovieName() {
+        return scanner.nextLine();
+    }
 }

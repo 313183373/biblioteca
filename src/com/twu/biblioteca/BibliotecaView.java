@@ -20,8 +20,11 @@ public class BibliotecaView {
     private static final String LOGIN_PROMPT = "Please login first";
     private static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
     private static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
-    private static final String LOGIN_FAILE_MESSAGE = "Sorry, invalid user, please try again!";
-    public static final String MOVIE_LIST_START = String.format("%-50s|%4s|%32s|%6s", "Name", "Year", "Director", "Rating");
+    private static final String LOGIN_FAIL_MESSAGE = "Sorry, invalid user, please try again!";
+    private static final String MOVIE_LIST_START = String.format("%-50s|%4s|%32s|%6s", "Name", "Year", "Director", "Rating");
+    private static final String INPUT_MOVIE_NAME_PROMPT = "Please enter a movie name:";
+    private static final String BORROW_MOVIE_FAIL_MESSAGE = "Sorry, that movie is not available";
+    private static final String BORROW_MOVIE_SUCCESS_MESSAGE = "Thank you! Enjoy the movie";
 
     private PrintStream out;
 
@@ -102,7 +105,7 @@ public class BibliotecaView {
     }
 
     void showLoginFailPrompt() {
-        out.println(LOGIN_FAILE_MESSAGE);
+        out.println(LOGIN_FAIL_MESSAGE);
     }
 
     void showUserInformation(BibliotecaUser loginUser) {
@@ -117,5 +120,17 @@ public class BibliotecaView {
         for (BibliotecaMovie movie : availableMovies) {
             out.println(movie.toString());
         }
+    }
+
+    void showInputMovieNamePrompt() {
+        out.println(INPUT_MOVIE_NAME_PROMPT);
+    }
+
+    void showBorrowMovieFail() {
+        out.println(BORROW_MOVIE_FAIL_MESSAGE);
+    }
+
+    void showBorrowMovieSuccess() {
+        out.println(BORROW_MOVIE_SUCCESS_MESSAGE);
     }
 }

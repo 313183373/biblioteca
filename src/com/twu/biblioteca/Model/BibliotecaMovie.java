@@ -23,4 +23,12 @@ public class BibliotecaMovie {
     public boolean isAvailable() {
         return isAvailable;
     }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -13,10 +13,6 @@ public class BibliotecaBorrowRecord {
         return bookTitle;
     }
 
-    public BibliotecaUser getUser() {
-        return user;
-    }
-
     @Override
     public String toString() {
         return String.format("%-30s|%10s", bookTitle, user.getName());
