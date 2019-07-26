@@ -35,4 +35,12 @@ class BibliotecaInput {
     String getUserInputBookTitle() {
         return scanner.nextLine();
     }
+
+    String getUserName() {
+        return scanner.nextLine();
+    }
+
+    String getUserPassword() {
+        return scanner.nextLine();
+    }
 }

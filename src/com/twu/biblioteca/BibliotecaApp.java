@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.Model.BibliotecaUser;
+
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -7,6 +9,7 @@ public class BibliotecaApp {
     private BibliotecaView view;
     private BibliotecaInput input;
     private BibliotecaBorrow borrow;
+    private BibliotecaLogin login;
 
     BibliotecaApp(BibliotecaView bibliotecaView, BibliotecaInput bibliotecaInput, BibliotecaBorrow bibliotecaBorrow) {
         view = bibliotecaView;
@@ -22,6 +25,18 @@ public class BibliotecaApp {
 
     void launch() {
         view.welcome();
+        view.showLoginPrompt();
+        while (true) {
+            view.showNameRequest();
+            String name = input.getUserName();
+            view.showPasswordRequest();
+            String password = input.getUserPassword();
+            BibliotecaUser loginUser = login.login(name, password);
+            if (loginUser != null) {
+                view.showWelcomeUser(loginUser);
+                break;
+            }
+        }
         while (true) {
             view.showMenu();
             int selection = input.getUserSelection();

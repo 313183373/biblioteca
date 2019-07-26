@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.Model.BibliotecaBook;
+import com.twu.biblioteca.Model.BibliotecaUser;
 
 import java.io.PrintStream;
 
@@ -16,6 +17,7 @@ class BibliotecaView {
     private static final String CHECKOUT_FAIL_MESSAGE = "Sorry, that book is not available";
     private static final String RETURN_BOOK_SUCCEED_MESSAGE = "Thank you for returning the book";
     private static final String RETURN_BOOK_FAIL = "That is not a valid book to return.";
+    public static final String LOGIN_PROMPT = "Please login first";
 
     private PrintStream out;
 
@@ -63,5 +65,21 @@ class BibliotecaView {
 
     void showReturnBookFailMessage() {
         out.println(RETURN_BOOK_FAIL);
+    }
+
+    void showLoginPrompt() {
+        out.println(LOGIN_PROMPT);
+    }
+
+    void showNameRequest() {
+        out.println("Name:");
+    }
+
+    void showPasswordRequest() {
+        out.println("Password:");
+    }
+
+    void showWelcomeUser(BibliotecaUser user) {
+        out.println("Hello " + user.getName());
     }
 }
