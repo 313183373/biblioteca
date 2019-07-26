@@ -14,5 +14,6 @@ public class CheckoutAMovieTest {
         movie.setAvailable(false);
 
         assertThat(movie.isAvailable(), is(false));
+        movie.setAvailable(true);
     }
 }
