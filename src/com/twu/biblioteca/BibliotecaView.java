@@ -24,6 +24,7 @@ class BibliotecaView {
     public static final String LOGIN_PROMPT = "Please login first";
     public static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
     public static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
+    public static final String LOGIN_FAILE_MESSAGE = "Sorry, invalid user, please try again!";
 
     private PrintStream out;
 
@@ -103,5 +104,9 @@ class BibliotecaView {
         for (BibliotecaBorrowRecord record : allRecords) {
             out.println(String.format("%-30s|%10s", record.getBookTitle(), record.getUser().getName()));
         }
+    }
+
+    void showLoginFailPrompt() {
+        out.println(LOGIN_FAILE_MESSAGE);
     }
 }

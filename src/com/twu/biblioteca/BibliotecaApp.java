@@ -27,17 +27,7 @@ public class BibliotecaApp {
     void launch() {
         view.welcome();
         view.showLoginPrompt();
-        while (true) {
-            view.showNameRequest();
-            String name = input.getUserName();
-            view.showPasswordRequest();
-            String password = input.getUserPassword();
-            BibliotecaUser loginUser = login.login(name, password);
-            if (loginUser != null) {
-                view.showWelcomeUser(loginUser);
-                break;
-            }
-        }
+        login();
         while (true) {
             view.showMenu(login.getLoginUser());
             int selection = input.getUserSelection();
@@ -65,6 +55,21 @@ public class BibliotecaApp {
                     view.showBooksCheckedOut(borrow);
                 }
             }
+        }
+    }
+
+    private void login() {
+        while (true) {
+            view.showNameRequest();
+            String name = input.getUserName();
+            view.showPasswordRequest();
+            String password = input.getUserPassword();
+            BibliotecaUser loginUser = login.login(name, password);
+            if (loginUser != null) {
+                view.showWelcomeUser(loginUser);
+                break;
+            }
+            view.showLoginFailPrompt();
         }
     }
 
