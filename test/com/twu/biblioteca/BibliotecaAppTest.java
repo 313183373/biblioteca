@@ -33,7 +33,7 @@ public class BibliotecaAppTest {
 
         assertThat(out.getContent(), is(
                 "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                        "1. List of books\n" +
+                        "1. List of BOOKS\n" +
                         "2. Checkout a book\n" +
                         "3. Return a book\n" +
                         "4. Quit\n" +
@@ -49,19 +49,19 @@ public class BibliotecaAppTest {
                         "The Odyssey                   |                    Homer|   1993\n" +
                         "One Hundred Years of Solitude |   Gabriel Garcia Marquez|   2000\n" +
                         "The Divine Comedy             |          Dante Alighieri|   2001\n" +
-                        "1. List of books\n" +
+                        "1. List of BOOKS\n" +
                         "2. Checkout a book\n" +
                         "3. Return a book\n" +
                         "4. Quit\n" +
                         "Please enter the book title: \n" +
                         "Thank you! Enjoy the book\n" +
-                        "1. List of books\n" +
+                        "1. List of BOOKS\n" +
                         "2. Checkout a book\n" +
                         "3. Return a book\n" +
                         "4. Quit\n" +
                         "Please enter the book title: \n" +
                         "Thank you for returning the book\n" +
-                        "1. List of books\n" +
+                        "1. List of BOOKS\n" +
                         "2. Checkout a book\n" +
                         "3. Return a book\n" +
                         "4. Quit"));

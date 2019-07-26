@@ -30,7 +30,7 @@ public class BibliotecaBorrow {
     }
 
     private boolean hasTheBook(String title) {
-        return BibliotecaBooks.books.stream().anyMatch(book -> book.getTitle().equals(title));
+        return BibliotecaBooks.BOOKS.stream().anyMatch(book -> book.getTitle().equals(title));
     }
 
     private boolean isTheBookBorrowed(String title) {

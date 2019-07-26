@@ -14,7 +14,7 @@ public class CheckoutBookTest {
         BibliotecaView bibliotecaView = new BibliotecaView(out);
         BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
 
-        String bookTitle = BibliotecaBooks.books.get(0).getTitle();
+        String bookTitle = BibliotecaBooks.BOOKS.get(0).getTitle();
         bibliotecaBorrow.borrowABook(bookTitle);
         assertThat(out.getContent(), is("Thank you! Enjoy the book"));
     }
