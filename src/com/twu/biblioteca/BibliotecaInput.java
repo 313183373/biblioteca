@@ -16,12 +16,11 @@ public class BibliotecaInput {
         int selection;
         try {
             selection = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             bibliotecaView.showInvalidMenuOptionMessage();
-            scanner.nextLine();
             return INVALID_OPTION;
         }
-        scanner.nextLine();
         if (isValidMenuOption(selection)) {
             return selection;
         }
