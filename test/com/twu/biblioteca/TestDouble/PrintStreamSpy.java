@@ -19,4 +19,8 @@ public class PrintStreamSpy extends PrintStream {
     public String getContent() {
         return String.join("\n", content);
     }
+
+    public void clearContent() {
+        content.clear();
+    }
 }

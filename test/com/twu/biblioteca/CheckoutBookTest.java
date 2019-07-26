@@ -12,7 +12,8 @@ public class CheckoutBookTest {
     public void ShouldCheckoutABookSucceed() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+        BibliotecaLogin bibliotecaLogin = new BibliotecaLogin();
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView, bibliotecaLogin);
 
         String bookTitle = BibliotecaBooks.BOOKS.get(0).getTitle();
         bibliotecaBorrow.borrowABook(bookTitle);
@@ -23,7 +24,8 @@ public class CheckoutBookTest {
     public void ShouldCheckoutABookFail() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+        BibliotecaLogin bibliotecaLogin = new BibliotecaLogin();
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView, bibliotecaLogin);
 
         String bookTitle = "Wrong Title";
         bibliotecaBorrow.borrowABook(bookTitle);

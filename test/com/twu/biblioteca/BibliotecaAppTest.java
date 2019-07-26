@@ -15,12 +15,14 @@ public class BibliotecaAppTest {
     private PrintStreamSpy out;
     private BibliotecaView bibliotecaView;
     private BibliotecaBorrow bibliotecaBorrow;
+    private BibliotecaLogin bibliotecaLogin;
 
     @Before
     public void setUp() {
         out = new PrintStreamSpy(new DummyOutputStream());
         bibliotecaView = new BibliotecaView(out);
-        bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+        bibliotecaLogin = new BibliotecaLogin();
+        bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView, bibliotecaLogin);
     }
 
     @Test

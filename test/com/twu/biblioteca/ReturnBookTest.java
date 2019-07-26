@@ -12,7 +12,8 @@ public class ReturnBookTest {
     public void ShouldReturnABookSucceed() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+        BibliotecaLogin bibliotecaLogin = new BibliotecaLogin();
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView, bibliotecaLogin);
 
         String bookTitle = BibliotecaBooks.BOOKS.get(0).getTitle();
         bibliotecaBorrow.borrowABook(bookTitle);
@@ -25,7 +26,8 @@ public class ReturnBookTest {
     public void ShouldReturnABookFail() {
         PrintStreamSpy out = new PrintStreamSpy(new DummyOutputStream());
         BibliotecaView bibliotecaView = new BibliotecaView(out);
-        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView);
+        BibliotecaLogin bibliotecaLogin = new BibliotecaLogin();
+        BibliotecaBorrow bibliotecaBorrow = new BibliotecaBorrow(bibliotecaView, bibliotecaLogin);
 
         String bookTitle = BibliotecaBooks.BOOKS.get(0).getTitle();
         bibliotecaBorrow.returnABook(bookTitle);
