@@ -1,12 +1,10 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.Model.BibliotecaBook;
-import com.twu.biblioteca.Model.BibliotecaBorrowRecord;
-import com.twu.biblioteca.Model.BibliotecaMenuItem;
-import com.twu.biblioteca.Model.BibliotecaUser;
+import com.twu.biblioteca.Model.*;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BibliotecaView {
     private static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
@@ -98,7 +96,7 @@ public class BibliotecaView {
         out.println(BORROW_RECORDS_LIST_START);
         out.println(BORROW_RECORDS_DIVIDING_LINE);
         for (BibliotecaBorrowRecord record : allRecords) {
-            out.println(String.format("%-30s|%10s", record.getBookTitle(), record.getUser().getName()));
+            out.println(record.toString());
         }
     }
 
@@ -110,5 +108,12 @@ public class BibliotecaView {
         out.println("name: " + loginUser.getName());
         out.println("email: " + loginUser.getEmail());
         out.println("phone number: " + loginUser.getPhoneNumber());
+    }
+
+    void showMovieList() {
+        List<BibliotecaMovie> availableMovies = BibliotecaMovies.getAvailableMovies();
+        for (BibliotecaMovie movie : availableMovies) {
+            out.println(movie.toString());
+        }
     }
 }

@@ -4,6 +4,8 @@ import com.twu.biblioteca.Model.BibliotecaMovie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class BibliotecaMovies {
     static final ArrayList<BibliotecaMovie> MOVIE = new ArrayList<>(Arrays.asList(
@@ -18,4 +20,8 @@ public class BibliotecaMovies {
             new BibliotecaMovie("Star Wars: Episode VIII - The Last Jedi", "2017", "Rian Johnson", 7),
             new BibliotecaMovie("Kong: Skull Island", "2017", "Jordan Vogt-Roberts", 7)
     ));
+
+    static List<BibliotecaMovie> getAvailableMovies() {
+        return MOVIE.stream().filter(BibliotecaMovie::isAvailable).collect(Collectors.toList());
+    }
 }
