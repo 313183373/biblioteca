@@ -29,32 +29,10 @@ public class BibliotecaApp {
         view.showLoginPrompt();
         login();
         while (true) {
-            view.showMenu(login.getLoginUser());
-            int selection = input.getUserSelection();
-            if (selection == 5) {
-                break;
-            }
-            switch (selection) {
-                case 1: {
-                    view.showBookList();
-                    break;
-                }
-                case 2: {
-                    view.showInputBookTitlePrompt();
-                    String title = input.getUserInputBookTitle();
-                    borrow.borrowABook(title);
-                    break;
-                }
-                case 3: {
-                    view.showInputBookTitlePrompt();
-                    String title = input.getUserInputBookTitle();
-                    borrow.returnABook(title);
-                    break;
-                }
-                case 4: {
-                    view.showBooksCheckedOut(borrow);
-                }
-            }
+            BibliotecaMenu availableMenu = login.getAvailableMenu();
+            view.showMenu(availableMenu);
+            int selection = input.getUserSelection() - 1;
+            availableMenu.getAvailableItems().get(selection).handle(view, borrow, input, login);
         }
     }
 

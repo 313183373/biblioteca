@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Scanner;
 
-class BibliotecaInput {
+public class BibliotecaInput {
     static final int INVALID_OPTION = -1;
     private BibliotecaView bibliotecaView;
     private Scanner scanner;
@@ -29,7 +29,7 @@ class BibliotecaInput {
     }
 
     private boolean isValidMenuOption(int selection) {
-        return selection > 0 & selection <= BibliotecaView.MENU.length;
+        return selection > 0 & selection <= BibliotecaMenu.ITEMS.length;
     }
 
     String getUserInputBookTitle() {

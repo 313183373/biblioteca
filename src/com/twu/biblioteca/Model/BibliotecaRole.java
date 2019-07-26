@@ -1,6 +1,6 @@
 package com.twu.biblioteca.Model;
 
-public enum Role {
+public enum BibliotecaRole {
     Customer,
     Librarian,
 }

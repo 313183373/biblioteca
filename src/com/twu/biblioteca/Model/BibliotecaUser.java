@@ -5,14 +5,14 @@ public class BibliotecaUser {
     private String email;
     private String phoneNumber;
     private String password;
-    private Role role;
+    private BibliotecaRole bibliotecaRole;
 
-    public BibliotecaUser(String name, String email, String phoneNumber, String password, Role role) {
+    public BibliotecaUser(String name, String email, String phoneNumber, String password, BibliotecaRole bibliotecaRole) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.role = role;
+        this.bibliotecaRole = bibliotecaRole;
     }
 
     public String getName() {
@@ -47,15 +47,15 @@ public class BibliotecaUser {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public BibliotecaRole getBibliotecaRole() {
+        return bibliotecaRole;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setBibliotecaRole(BibliotecaRole bibliotecaRole) {
+        this.bibliotecaRole = bibliotecaRole;
     }
 
     public boolean isLibrarian() {
-        return role.equals(Role.Librarian);
+        return bibliotecaRole.equals(BibliotecaRole.Librarian);
     }
 }

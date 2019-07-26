@@ -5,7 +5,7 @@ import com.twu.biblioteca.Model.BibliotecaBorrowRecord;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-class BibliotecaBorrow {
+public class BibliotecaBorrow {
     private ArrayList<BibliotecaBorrowRecord> borrowRecords = new ArrayList<>();
     private BibliotecaView view;
     private BibliotecaLogin login;

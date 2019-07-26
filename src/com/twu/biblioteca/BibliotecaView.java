@@ -2,15 +2,13 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.Model.BibliotecaBook;
 import com.twu.biblioteca.Model.BibliotecaBorrowRecord;
+import com.twu.biblioteca.Model.BibliotecaMenuItem;
 import com.twu.biblioteca.Model.BibliotecaUser;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-class BibliotecaView {
-    static final String[] MENU = {"List of books", "Checkout a book", "Return a book", "View books checked out", "Quit"};
-//    static final String[] ADMIN_MENU = {"List of borrow record"};
-
+public class BibliotecaView {
     private static final String WELCOME = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     private static final String INVALID_OPTION_MESSAGE = "Please select a valid option!";
     private static final String BOOK_LIST_DIVIDING_LINE = "----------------------------------------------------------------";
@@ -21,10 +19,10 @@ class BibliotecaView {
     private static final String CHECKOUT_FAIL_MESSAGE = "Sorry, that book is not available";
     private static final String RETURN_BOOK_SUCCEED_MESSAGE = "Thank you for returning the book";
     private static final String RETURN_BOOK_FAIL = "That is not a valid book to return.";
-    public static final String LOGIN_PROMPT = "Please login first";
-    public static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
-    public static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
-    public static final String LOGIN_FAILE_MESSAGE = "Sorry, invalid user, please try again!";
+    private static final String LOGIN_PROMPT = "Please login first";
+    private static final String BORROW_RECORDS_LIST_START = String.format("%-30s|%10s", "Book Title", "Customer");
+    private static final String NO_BOOK_CHECKED_OUT = "There is no book checked out";
+    private static final String LOGIN_FAILE_MESSAGE = "Sorry, invalid user, please try again!";
 
     private PrintStream out;
 
@@ -36,14 +34,12 @@ class BibliotecaView {
         out.println(WELCOME);
     }
 
-    void showMenu(BibliotecaUser loginUser) {
-        for (int i = 0; i < MENU.length; i++) {
+    void showMenu(BibliotecaMenu bibliotecaMenu) {
+        ArrayList<BibliotecaMenuItem> availableItems = bibliotecaMenu.getAvailableItems();
+        for (int i = 0; i < availableItems.size(); i++) {
             int index = i + 1;
-            out.println(index + ". " + MENU[i]);
+            out.println(index + ": " + availableItems.get(i).getName());
         }
-//        if (loginUser.isLibrarian()) {
-//
-//        }
     }
 
     void showInvalidMenuOptionMessage() {
